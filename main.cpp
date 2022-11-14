@@ -54,6 +54,7 @@ int main() {
 			cout << endl;
 
 			JobConfiguration item = JobConfiguration(r, p, t);
+			cout << "item number : " << item.getId() << endl;
 			mapItems[item.getId()] = item;
 		}
 		profitArray[i] = new int[numberResources + 1];
@@ -70,19 +71,18 @@ int main() {
 	cout << "algorithm initialization" << endl;
 	for (int i = 0; i < numberItems + 1; i++) {
 		for (int j = 0; j < numberResources + 1; j++) {
-			cout << "step number i = " << i << "number j = " << j << endl;
-
+			//cout << "step number i = " << i << "number j = " << j << endl;
 			if (i == 0 || j == 0) profitArray[i][j] = 0;
-			
-			else {
 
+			else {
 				JobConfiguration currentItem = mapItems[i];
 				bestComposition[j] = previousSackCompostionsList[j].getItemList();
 				int maxProfit = profitArray[i - 1][j];
+				//cout << "item number : " << currentItem.getId() << " weighs " << currentItem.getResources() << endl;
 				if (j >= currentItem.getResources()) {
 					for (int k = 0; k < j + 1; k++) {
 						if (currentItem.getResources() + previousSackCompostionsList[k].calculateTotalWeight() <= j) {
-							if (currentItem.getProfit() + previousSackCompostionsList[k].getTotalProfit() > maxProfit) {
+							if (currentItem.getProfit() + previousSackCompostionsList[k].calculateTotalProfit() > maxProfit) {
 								bestComposition[j] = previousSackCompostionsList[k].getItemList();
 								bestComposition[j].addJobConfiguration(currentItem);
 								maxProfit = currentItem.getProfit() + previousSackCompostionsList[k].getTotalProfit();

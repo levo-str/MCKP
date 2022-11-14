@@ -18,6 +18,7 @@ public:
 	int getProfit();
 	int getTask();
 	int getId();
+	JobConfiguration setId(int id);
 
 private :
 	uint32_t id;

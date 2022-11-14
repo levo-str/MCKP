@@ -6,11 +6,11 @@
 
 atomic_uint32_t JobConfiguration::current_id = 1; // added
 
-JobConfiguration::JobConfiguration() : id(current_id++) {
+JobConfiguration::JobConfiguration() {
 
 }
 
-JobConfiguration::JobConfiguration(int r, int p, int t) : id(current_id++) {
+JobConfiguration::JobConfiguration(int r, int p, int t): id(current_id++) {
 	resources = r;
 	profit = p;
 	task = t;
@@ -30,4 +30,9 @@ int JobConfiguration::getProfit() {
 
 int JobConfiguration::getTask() {
 	return task;
+}
+
+JobConfiguration JobConfiguration::setId(int id) {
+	this->id = id;
+	return *this;
 }
