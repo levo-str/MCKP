@@ -133,7 +133,7 @@
     <ClInclude Include="task.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="job.cpp" />
+    <ClCompile Include="jobconfiguration.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="resourceManager.cpp" />
     <ClCompile Include="sackcomposition.cpp" />
