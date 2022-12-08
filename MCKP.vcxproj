@@ -130,6 +130,7 @@
     <ClInclude Include="jobconfiguration.h" />
     <ClInclude Include="resourceManager.h" />
     <ClInclude Include="sackcomposition.h" />
+    <ClInclude Include="Solution.h" />
     <ClInclude Include="task.h" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +138,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="resourceManager.cpp" />
     <ClCompile Include="sackcomposition.cpp" />
+    <ClCompile Include="Solution.cpp" />
     <ClCompile Include="task.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
