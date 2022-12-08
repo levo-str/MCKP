@@ -63,14 +63,25 @@ int main() {
 
 
 	unordered_map<int, JobConfiguration> mapItems;
-	mapItems[1] = JobConfiguration(10, 60, 1);
-	mapItems[2] = JobConfiguration(20, 100, 2);
-	mapItems[3] = JobConfiguration(30, 120, 3);
-	mapItems[4] = JobConfiguration(40, 50, 3);
-	mapItems[5] = JobConfiguration(20, 130, 2);
+	mapItems[1] = JobConfiguration(4, 4, 1);
+	mapItems[2] = JobConfiguration(5, 3, 1);
+	mapItems[3] = JobConfiguration(7, 4, 1);
+	mapItems[4] = JobConfiguration(3, 9, 1);
+	mapItems[5] = JobConfiguration(3, 9, 2);
+	mapItems[6] = JobConfiguration(7, 12, 2);
+	mapItems[7] = JobConfiguration(6, 8, 3);
+	mapItems[8] = JobConfiguration(8, 4, 3);
+	mapItems[9] = JobConfiguration(3, 3, 4);
+	mapItems[10] = JobConfiguration(8, 4, 4);
+	mapItems[11] = JobConfiguration(6, 8, 4);
+	mapItems[12] = JobConfiguration(10, 12, 4);
 
 	ResourceManager problemSolver = ResourceManager(50, mapItems);
-	problemSolver.solveMckp();
+	SackComposition solution = problemSolver.solveMckp();
 	int** profitArray = problemSolver.getProfitArray();
+	cout << endl << "Sack composition is : " << endl;
+	for (auto item : solution.getItemList()) {
+		cout << item.second.getId() << ",";
+	}
 	return 0;
 }
