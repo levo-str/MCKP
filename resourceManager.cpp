@@ -72,15 +72,18 @@ SackComposition ResourceManager::solveMckp() {
 	//Now get the best composition : 
 	int i = numberItems;
 	int j = numberResources;
-	while (i > 0 && j > 0) {
-		if (profitArray[i - 1][j] != profitArray[i][j]) {
-			bestComposition.addJobConfiguration(itemsSortedByTask[i-1]);
+	int previousTask = itemsSortedByTask[i - 1].getTask();
+	while (i > 1 && j > 0) {
+		JobConfiguration inspectedJobConfiguration = itemsSortedByTask[i - 1];
+		if (profitArray[i - 1][j] != profitArray[i][j] && inspectedJobConfiguration.getTask() <= previousTask) {
+			previousTask = inspectedJobConfiguration.getTask() - 1;
+			bestComposition.addJobConfiguration(inspectedJobConfiguration);
 			j = j - itemsSortedByTask[i-1].getResources();
 		}
 		i--;
 	}
+
 	cout << endl << profitArray[numberItems][numberResources] << endl;
-	//std::cout << endl << previousSackCompostionsList[numberResources].getTotalProfit() << endl;
 
 	for (int a = 0; a < numberItems + 1; a++)
 	{
@@ -90,6 +93,6 @@ SackComposition ResourceManager::solveMckp() {
 		}
 		cout << endl;
 	}
-	cout << "profit of best composition = " << bestComposition.getTotalProfit();
+	cout << "profit of best composition = " << bestComposition.calculateTotalProfit();
 	return bestComposition;
 }
