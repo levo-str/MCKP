@@ -80,7 +80,7 @@ int main() {
 	long long totalTimeForSerialResolution = 0;
 	long long totalTimeForParallelResolution = 0;
 
-	for (int testNumber = 0; testNumber < 100; testNumber++) {
+	for (int testNumber = 0; testNumber < 25; testNumber++) {
 		
 		int numberOfSet = dist3(rng);
 		int weight = dist2(rng);

@@ -42,7 +42,7 @@ SackComposition ResourceManager::solveMckpConcurrently() {
 
 	//std::cout << "Solving starting ..." << endl;
 	for (int i = 0; i < numberItems + 1; i++) {
-		concurrency::parallel_for(0, numberResources + 1, [i, &this](int j) {
+		concurrency::parallel_for(0, numberResources + 1, [i, this](int j) {
 			//cout << "step number i = " << i << " number j = " << j << endl;
 
 			if (i == 0 || j == 0) profitArray[i][j] = 0;
