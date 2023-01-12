@@ -7,7 +7,6 @@
 #include "SackComposition.h"
 #include "resourceManager.h"
 
-using namespace std;
 
 int main() {
 

@@ -1,8 +1,7 @@
 #pragma once
 #include <vector>
-#include "unordered_map"
-#include "jobconfiguration.h"
 #include "map"
+#include "jobconfiguration.h"
 
 using namespace std;
 
@@ -13,17 +12,17 @@ class SackComposition
 {
 public:
 	SackComposition();
-	SackComposition(vector<JobConfiguration> itemList);
+	SackComposition(std::vector<JobConfiguration> itemList);
 	int getTotalWeight() { return totalWeight; };
 	int getTotalProfit() { return totalProfit; };
-	map<int,JobConfiguration> getItemList() { return itemList; };
+	std::map<int,JobConfiguration> getItemList() { return itemList; };
 	int calculateTotalWeight();
 	int calculateTotalProfit();
 	void addJobConfiguration(JobConfiguration newItem);
 	 
 
 private:
-	map<int, JobConfiguration> itemList;
+	std::map<int, JobConfiguration> itemList;
 	int totalWeight;
 	int totalProfit;
 };

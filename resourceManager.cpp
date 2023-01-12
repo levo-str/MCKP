@@ -15,7 +15,7 @@ bool compareByTask(JobConfiguration a, JobConfiguration b) {
 /**
 * ResourceManager builder 
 */
-ResourceManager::ResourceManager(int numberOfResources, unordered_map<int, JobConfiguration> mapItems) {
+ResourceManager::ResourceManager(int numberOfResources, std::unordered_map<int, JobConfiguration> mapItems) {
 	this->numberResources = numberOfResources;
 	this->mapItems = mapItems;
 	this->numberItems = mapItems.size();
@@ -37,12 +37,12 @@ ResourceManager::ResourceManager(int numberOfResources, unordered_map<int, JobCo
 */
 SackComposition ResourceManager::solveMckp() {
 
-	vector<JobConfiguration> emptyVector = {};
+	std::vector<JobConfiguration> emptyVector = {};
 	SackComposition bestComposition = SackComposition(emptyVector);
 
 	cout << "Solving starting ..." << endl;
 	for (int i = 0; i < numberItems + 1; i++) {
-		for (int j = 0; j < numberResources + 1; j++) {
+		for (int j = 0; j < numberResources + 1; j++) { 
 			//cout << "step number i = " << i << " number j = " << j << endl;
 			
 			if (i == 0 || j == 0) profitArray[i][j] = 0;

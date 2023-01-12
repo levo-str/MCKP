@@ -11,7 +11,7 @@
 #include "map"
 #include "algorithm"
 
-using namespace std;
+
 /** 
 * @brief The class of the MCKP solver 
 */
@@ -19,15 +19,15 @@ class ResourceManager
 {
 public:
 	ResourceManager();
-	ResourceManager(int numberOfResources, unordered_map<int, JobConfiguration> mapItems);
+	ResourceManager(int numberOfResources, std:: unordered_map<int, JobConfiguration> mapItems);
 	SackComposition solveMckp();
 	int** getProfitArray() { return profitArray; };
 private:
-	vector<Task> listOfTask;
+	std::vector<Task> listOfTask;
 	int numberItems;
 	int numberResources;
-	vector <JobConfiguration> itemsSortedByTask;
-	unordered_map<int, JobConfiguration> mapItems;
+	std::vector <JobConfiguration> itemsSortedByTask;
+	std::unordered_map<int, JobConfiguration> mapItems;
 	int** profitArray;
 
 };
