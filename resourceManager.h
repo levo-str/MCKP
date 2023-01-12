@@ -22,7 +22,9 @@ public:
 	ResourceManager();
 	ResourceManager(int numberOfResources, std:: unordered_map<int, JobConfiguration> mapItems);
 	SackComposition solveMckp();
+	SackComposition solveMckpConcurrently();
 	int** getProfitArray() { return profitArray; };
+	void printProfitArray();
 private:
 	std::vector<Task> listOfTask;
 	int numberItems;
