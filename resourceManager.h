@@ -6,6 +6,7 @@
 #include <fstream>
 #include <cmath>
 #include <unordered_map>
+#include <ppl.h>
 #include "jobconfiguration.h"
 #include "SackComposition.h"
 #include "map"

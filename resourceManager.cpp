@@ -28,7 +28,7 @@ ResourceManager::ResourceManager(int numberOfResources, std::unordered_map<int, 
 	}
 
 	sort(this->itemsSortedByTask.begin(), this->itemsSortedByTask.end(), compareByTask);
-	cout << "Initialisation complete" << endl;
+	std::cout << "Initialisation complete" << endl;
 }
 
 
@@ -40,23 +40,23 @@ SackComposition ResourceManager::solveMckp() {
 	std::vector<JobConfiguration> emptyVector = {};
 	SackComposition bestComposition = SackComposition(emptyVector);
 
-	cout << "Solving starting ..." << endl;
+	std::cout << "Solving starting ..." << endl;
 	for (int i = 0; i < numberItems + 1; i++) {
-		for (int j = 0; j < numberResources + 1; j++) { 
+		concurrency::parallel_for(0, numberResources + 1, [i, this](int j) {
 			//cout << "step number i = " << i << " number j = " << j << endl;
-			
+
 			if (i == 0 || j == 0) profitArray[i][j] = 0;
 
 			else {
-				JobConfiguration currentItem = itemsSortedByTask[i-1];
-				int previousTask = itemsSortedByTask[i-1].getTask() - 1;
-				
+				JobConfiguration currentItem = itemsSortedByTask[i - 1];
+				int previousTask = itemsSortedByTask[i - 1].getTask() - 1;
+
 				//cout << "item number : " << currentItem.getId() << " weighs " << currentItem.getResources() << endl;
 				if (j >= currentItem.getResources()) {
 					int maxProfit = max(profitArray[i - 1][j], currentItem.getProfit());
 					int k = j - currentItem.getResources();
 					for (int l = 1; l < i; l++) {
-						if (currentItem.getProfit() + profitArray[l][k] > maxProfit && itemsSortedByTask[l-1].getTask() == previousTask) {
+						if (currentItem.getProfit() + profitArray[l][k] > maxProfit && itemsSortedByTask[l - 1].getTask() == previousTask) {
 							maxProfit = currentItem.getProfit() + profitArray[l][k];
 						}
 					}
@@ -67,7 +67,7 @@ SackComposition ResourceManager::solveMckp() {
 					profitArray[i][j] = profitArray[i - 1][j];
 				}
 			}
-		}
+			});
 	}
 	//Now get the best composition : 
 	int i = numberItems;
@@ -83,16 +83,16 @@ SackComposition ResourceManager::solveMckp() {
 		i--;
 	}
 
-	cout << endl << profitArray[numberItems][numberResources] << endl;
+	std::cout << endl << profitArray[numberItems][numberResources] << endl;
 
 	for (int a = 0; a < numberItems + 1; a++)
 	{
 		for (int b = 0; b < numberResources + 1; b++)
 		{
-			cout << profitArray[a][b] << " ";
+			std::cout << profitArray[a][b] << " ";
 		}
-		cout << endl;
+		std::cout << endl;
 	}
-	cout << "profit of best composition = " << bestComposition.calculateTotalProfit();
+	std::cout << "profit of best composition = " << bestComposition.calculateTotalProfit();
 	return bestComposition;
 }
