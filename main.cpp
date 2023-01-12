@@ -3,11 +3,18 @@
 #include <vector>
 #include <cmath>
 #include <unordered_map>
+#include <chrono>
+
 #include "jobconfiguration.h"
 #include "SackComposition.h"
 #include "resourceManager.h"
 
 using namespace std;
+
+auto get_time() {
+	return std::chrono::high_resolution_clock::now();
+}
+
 
 int main() {
 
@@ -76,12 +83,17 @@ int main() {
 	mapItems[11] = JobConfiguration(6, 8, 4);
 	mapItems[12] = JobConfiguration(10, 12, 4);
 
+	auto start = get_time();
 	ResourceManager problemSolver = ResourceManager(50, mapItems);
 	SackComposition solution = problemSolver.solveMckp();
 	int** profitArray = problemSolver.getProfitArray();
+	auto finish = get_time();
 	cout << endl << "Sack composition is : " << endl;
 	for (auto item : solution.getItemList()) {
 		cout << item.second.getId() << ",";
 	}
+	auto duration =
+		std::chrono::duration_cast<std::chrono::milliseconds>(finish - start);
+	std::cout << "Elapsed time = " << duration.count() << " ms\n";
 	return 0;
 }
