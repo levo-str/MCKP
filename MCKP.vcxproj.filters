@@ -27,9 +27,6 @@
     <ClInclude Include="sackcomposition.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Solution.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jobconfiguration.cpp">
@@ -45,9 +42,6 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="sackcomposition.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
