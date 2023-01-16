@@ -20,6 +20,7 @@ class ResourceManager
 {
 public:
 	ResourceManager();
+	~ResourceManager();
 	ResourceManager(int numberOfResources, std:: unordered_map<int, JobConfiguration> mapItems);
 	SackComposition solveMckp();
 	SackComposition solveMckpConcurrently();

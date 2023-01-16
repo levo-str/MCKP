@@ -73,14 +73,19 @@ int main() {
 	// Set up our random number generator
 	std::mt19937 rng;
 	rng.seed(std::random_device()());
-	std::uniform_int_distribution<int> dist1(0, 10000);
-	std::uniform_int_distribution<int> dist2(0, 10000);
-	std::uniform_int_distribution<int> dist3(0, 100);
+	std::uniform_int_distribution<int> dist1(1, 10000);
+	std::uniform_int_distribution<int> dist2(1, 10000);
+	std::uniform_int_distribution<int> dist3(1, 100);
+	//specify the number of nodes
+	//specify the number of jobs running 
+	//calculate memory consumption
+	//calculate speedup of the algorithm
+	//look into other parallelization methods
 
 	long long totalTimeForSerialResolution = 0;
 	long long totalTimeForParallelResolution = 0;
 
-	for (int testNumber = 0; testNumber < 25; testNumber++) {
+	for (int testNumber = 0; testNumber < 100; testNumber++) {
 		
 		int numberOfSet = dist3(rng);
 		int weight = dist2(rng);
@@ -98,19 +103,23 @@ int main() {
 		auto finish = get_time();
 		auto duration =
 		std::chrono::duration_cast<std::chrono::milliseconds>(finish - start);
-		totalTimeForSerialResolution = duration.count();
+		totalTimeForSerialResolution += duration.count();
 		
 		
 		auto parallelStart = get_time();
 
 		ResourceManager parallelProblemSolver = ResourceManager(weight, mapItems);
-		solution = parallelProblemSolver.solveMckpConcurrently();
+		SackComposition parallelSolution = parallelProblemSolver.solveMckpConcurrently();
 		
 		auto parallelFinish = get_time();
 		
 		auto parallelDuration =
 			std::chrono::duration_cast<std::chrono::milliseconds>(parallelFinish - parallelStart);
-		totalTimeForParallelResolution = parallelDuration.count();
+		totalTimeForParallelResolution += parallelDuration.count();
+
+		if (solution.calculateTotalProfit() != parallelSolution.calculateTotalProfit()) {
+			std::cout << "There is a problem" << std::endl;
+		}
 	}
 
 	/*

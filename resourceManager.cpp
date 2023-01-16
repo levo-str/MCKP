@@ -8,6 +8,15 @@ ResourceManager::ResourceManager() {
 
 }
 
+ResourceManager::~ResourceManager() {
+	if (profitArray != NULL) {
+		for(int i = 0; i < this-> numberItems + 1 ; i++){
+			delete[] profitArray[i];
+		}
+		delete[] profitArray;
+	}
+}
+
 bool compareByTask(JobConfiguration a, JobConfiguration b) {
 	return a.getTask() < b.getTask();
 }
