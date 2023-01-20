@@ -128,16 +128,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="jobconfiguration.h" />
+    <ClInclude Include="ProblemGenerator.h" />
     <ClInclude Include="resourceManager.h" />
     <ClInclude Include="sackcomposition.h" />
-    <ClInclude Include="task.h" />
+    <ClInclude Include="Job.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jobconfiguration.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ProblemGenerator.cpp" />
     <ClCompile Include="resourceManager.cpp" />
     <ClCompile Include="sackcomposition.cpp" />
-    <ClCompile Include="task.cpp" />
+    <ClCompile Include="Job.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

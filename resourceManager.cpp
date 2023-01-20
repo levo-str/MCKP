@@ -2,13 +2,13 @@
 
 
 /**
-* Default builder for ResourceManager
+* Default builder for ResourceManagerDP
 */
-ResourceManager::ResourceManager() {
+ResourceManagerDP::ResourceManagerDP() {
 
 }
 
-ResourceManager::~ResourceManager() {
+ResourceManagerDP::~ResourceManagerDP() {
 	if (profitArray != NULL) {
 		for(int i = 0; i < this-> numberItems + 1 ; i++){
 			delete[] profitArray[i];
@@ -22,9 +22,9 @@ bool compareByTask(JobConfiguration a, JobConfiguration b) {
 }
 
 /**
-* ResourceManager builder 
+* ResourceManagerDP builder 
 */
-ResourceManager::ResourceManager(int numberOfResources, std::unordered_map<int, JobConfiguration> mapItems) {
+ResourceManagerDP::ResourceManagerDP(int numberOfResources, std::unordered_map<int, JobConfiguration> mapItems) {
 	this->numberResources = numberOfResources;
 	this->mapItems = mapItems;
 	this->numberItems = mapItems.size();
@@ -44,7 +44,7 @@ ResourceManager::ResourceManager(int numberOfResources, std::unordered_map<int, 
 /**
 * Solve the MCKP according to parameters of the object Resource Manager
 */
-SackComposition ResourceManager::solveMckpConcurrently() {
+SackComposition ResourceManagerDP::solveMckpConcurrently() {
 
 	std::vector<JobConfiguration> emptyVector = {};
 	SackComposition bestComposition = SackComposition(emptyVector);
@@ -97,7 +97,7 @@ SackComposition ResourceManager::solveMckpConcurrently() {
 	return bestComposition;
 }
 
-SackComposition ResourceManager::solveMckp() {
+SackComposition ResourceManagerDP::solveMckp() {
 
 	std::vector<JobConfiguration> emptyVector = {};
 	SackComposition bestComposition = SackComposition(emptyVector);
@@ -150,7 +150,7 @@ SackComposition ResourceManager::solveMckp() {
 	return bestComposition;
 }
 
-void ResourceManager::printProfitArray() {
+void ResourceManagerDP::printProfitArray() {
 	for (int a = 0; a < numberItems + 1; a++)
 	{
 		for (int b = 0; b < numberResources + 1; b++)

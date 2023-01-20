@@ -85,7 +85,7 @@ int main() {
 	long long totalTimeForSerialResolution = 0;
 	long long totalTimeForParallelResolution = 0;
 
-	for (int testNumber = 0; testNumber < 100; testNumber++) {
+	for (int testNumber = 0; testNumber < 10; testNumber++) {
 		
 		int numberOfSet = dist3(rng);
 		int weight = dist2(rng);
@@ -98,7 +98,7 @@ int main() {
 		}
 
 		auto start = get_time();
-		ResourceManager problemSolver = ResourceManager(weight, mapItems);
+		ResourceManagerDP problemSolver = ResourceManagerDP(weight, mapItems);
 		SackComposition solution = problemSolver.solveMckp();
 		auto finish = get_time();
 		auto duration =
@@ -108,7 +108,7 @@ int main() {
 		
 		auto parallelStart = get_time();
 
-		ResourceManager parallelProblemSolver = ResourceManager(weight, mapItems);
+		ResourceManagerDP parallelProblemSolver = ResourceManagerDP(weight, mapItems);
 		SackComposition parallelSolution = parallelProblemSolver.solveMckpConcurrently();
 		
 		auto parallelFinish = get_time();
@@ -137,7 +137,7 @@ int main() {
 	mapItems[11] = JobConfiguration(6, 8, 4);
 	mapItems[12] = JobConfiguration(10, 12, 4);
 	auto start = get_time();
-	ResourceManager problemSolver = ResourceManager(50, mapItems);
+	ResourceManagerDP problemSolver = ResourceManagerDP(50, mapItems);
 	SackComposition solution = problemSolver.solveMckp();
 	int** profitArray = problemSolver.getProfitArray();
 	auto finish = get_time(); 

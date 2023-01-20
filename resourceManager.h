@@ -1,5 +1,4 @@
 #pragma once
-#include "Task.h"
 #include "jobconfiguration.h"
 #include <vector>
 #include <vector>
@@ -16,18 +15,17 @@
 /** 
 * @brief The class of the MCKP solver 
 */
-class ResourceManager
+class ResourceManagerDP
 {
 public:
-	ResourceManager();
-	~ResourceManager();
-	ResourceManager(int numberOfResources, std:: unordered_map<int, JobConfiguration> mapItems);
+	ResourceManagerDP();
+	~ResourceManagerDP();
+	ResourceManagerDP(int numberOfResources, std:: unordered_map<int, JobConfiguration> mapItems);
 	SackComposition solveMckp();
 	SackComposition solveMckpConcurrently();
 	int** getProfitArray() { return profitArray; };
 	void printProfitArray();
 private:
-	std::vector<Task> listOfTask;
 	int numberItems;
 	int numberResources;
 	std::vector <JobConfiguration> itemsSortedByTask;
