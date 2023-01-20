@@ -13,36 +13,84 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\commons">
+      <UniqueIdentifier>{573ad8b7-5ba3-4e45-82e1-fe0407c6108f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\branchAndBounds">
+      <UniqueIdentifier>{c0976317-fde8-45d5-ab77-b991c3eb28c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\dynamicProgramming">
+      <UniqueIdentifier>{f88c720c-5167-4498-95e4-44a0e7f28cbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\problemFormulation">
+      <UniqueIdentifier>{0f573023-7880-42dc-9cfe-8713c20f511b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\commons">
+      <UniqueIdentifier>{6bfa76b7-a9b0-4c80-b374-aea8894f965d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\branchAndBounds">
+      <UniqueIdentifier>{3c84d0b9-df88-4755-bfd4-444026c01e28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\dynamicProgramming">
+      <UniqueIdentifier>{b31a5b51-a811-440f-89cd-796b438860d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\problemFormulation">
+      <UniqueIdentifier>{2331a677-e01e-4f2b-93ed-c65675114d82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Job.h">
+      <Filter>Fichiers d%27en-tête\problemFormulation</Filter>
+    </ClInclude>
     <ClInclude Include="jobconfiguration.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\commons</Filter>
     </ClInclude>
-    <ClInclude Include="resourceManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Node.h">
+      <Filter>Fichiers d%27en-tête\branchAndBounds</Filter>
     </ClInclude>
-    <ClInclude Include="task.h">
+    <ClInclude Include="NodeValue.h">
+      <Filter>Fichiers d%27en-tête\branchAndBounds</Filter>
+    </ClInclude>
+    <ClInclude Include="ProblemGenerator.h">
+      <Filter>Fichiers d%27en-tête\problemFormulation</Filter>
+    </ClInclude>
+    <ClInclude Include="resourceManagerDP.h">
+      <Filter>Fichiers d%27en-tête\dynamicProgramming</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="sackcomposition.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\commons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="jobconfiguration.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="resourceManager.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Job.cpp">
+      <Filter>Fichiers sources\problemFormulation</Filter>
     </ClCompile>
-    <ClCompile Include="task.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="jobconfiguration.cpp">
+      <Filter>Fichiers sources\commons</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Fichiers sources\branchAndBounds</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeValue.cpp">
+      <Filter>Fichiers sources\branchAndBounds</Filter>
+    </ClCompile>
+    <ClCompile Include="resourceManagerDP.cpp">
+      <Filter>Fichiers sources\dynamicProgramming</Filter>
+    </ClCompile>
+    <ClCompile Include="ProblemGenerator.cpp">
+      <Filter>Fichiers sources\problemFormulation</Filter>
     </ClCompile>
     <ClCompile Include="sackcomposition.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\commons</Filter>
+    </ClCompile>
+    <ClCompile Include="resourceManager.cpp">
+      <Filter>Fichiers sources\problemFormulation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

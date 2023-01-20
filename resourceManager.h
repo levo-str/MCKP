@@ -1,36 +1,23 @@
 #pragma once
-#include "jobconfiguration.h"
-#include <vector>
-#include <vector>
-#include <fstream>
-#include <cmath>
 #include <unordered_map>
-#include <ppl.h>
 #include "jobconfiguration.h"
-#include "SackComposition.h"
-#include "map"
-#include "algorithm"
+#include "sackcomposition.h"
 
-
-/** 
-* @brief The class of the MCKP solver 
+class ProblemGenerator;
+/**
+* Base class for MCKP solver
 */
-class ResourceManagerDP
+class ResourceManager
 {
 public:
-	ResourceManagerDP();
-	~ResourceManagerDP();
-	ResourceManagerDP(int numberOfResources, std:: unordered_map<int, JobConfiguration> mapItems);
-	SackComposition solveMckp();
-	SackComposition solveMckpConcurrently();
-	int** getProfitArray() { return profitArray; };
-	void printProfitArray();
-private:
+	virtual SackComposition solveMckp() { return SackComposition(); };
+	virtual SackComposition solveMckpConcurrently(){ return SackComposition(); };
+	ResourceManager() {};
+	ResourceManager(int numberOfResources, std::unordered_map<int, JobConfiguration> mapItems);
+	ResourceManager(ProblemGenerator problem);
+
+protected : 
 	int numberItems;
 	int numberResources;
-	std::vector <JobConfiguration> itemsSortedByTask;
 	std::unordered_map<int, JobConfiguration> mapItems;
-	int** profitArray;
-
 };
-

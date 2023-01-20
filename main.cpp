@@ -8,7 +8,7 @@
 
 #include "jobconfiguration.h"
 #include "SackComposition.h"
-#include "resourceManager.h"
+#include "resourceManagerDP.h"
 
 auto get_time() {
 	return std::chrono::high_resolution_clock::now();

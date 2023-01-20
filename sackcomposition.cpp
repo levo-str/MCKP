@@ -12,8 +12,7 @@ SackComposition::SackComposition() {
 * Builder for SackComposition (i.e knapsack configuration)
 */
 SackComposition::SackComposition(std::vector<JobConfiguration> itemList) {
-	for (int i = 0; itemList.size(); i++)
-		this->itemList[itemList[i].getTask()] = itemList[i];
+	this->itemList = itemList;
 	this->calculateTotalProfit();
 	this->calculateTotalWeight();
 }

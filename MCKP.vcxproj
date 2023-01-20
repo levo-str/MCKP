@@ -131,7 +131,8 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeValue.h" />
     <ClInclude Include="ProblemGenerator.h" />
-    <ClInclude Include="resourceManager.h" />
+    <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="resourceManagerDP.h" />
     <ClInclude Include="sackcomposition.h" />
     <ClInclude Include="Job.h" />
   </ItemGroup>
@@ -142,6 +143,7 @@
     <ClCompile Include="NodeValue.cpp" />
     <ClCompile Include="ProblemGenerator.cpp" />
     <ClCompile Include="resourceManager.cpp" />
+    <ClCompile Include="resourceManagerDP.cpp" />
     <ClCompile Include="sackcomposition.cpp" />
     <ClCompile Include="Job.cpp" />
   </ItemGroup>

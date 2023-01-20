@@ -1,9 +1,9 @@
 #pragma once~
 #include "jobconfiguration.h"
 #include "Job.h"
-#include "ResourceManager.h"
 #include <unordered_map>
 #include <vector>
+#include "ResourceManager.h"
 
 
 class ProblemGenerator
