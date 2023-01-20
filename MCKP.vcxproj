@@ -128,6 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="jobconfiguration.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="NodeValue.h" />
     <ClInclude Include="ProblemGenerator.h" />
     <ClInclude Include="resourceManager.h" />
     <ClInclude Include="sackcomposition.h" />
@@ -136,6 +138,8 @@
   <ItemGroup>
     <ClCompile Include="jobconfiguration.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="NodeValue.cpp" />
     <ClCompile Include="ProblemGenerator.cpp" />
     <ClCompile Include="resourceManager.cpp" />
     <ClCompile Include="sackcomposition.cpp" />
