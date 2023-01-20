@@ -24,7 +24,7 @@ SackComposition::SackComposition(std::vector<JobConfiguration> itemList) {
 int SackComposition::calculateTotalWeight() {
 	totalWeight = 0;
 	for (auto item : itemList) {
-		totalWeight += item.second.getResources();
+		totalWeight += item.getResources();
 	}
 	return totalWeight;
 }
@@ -35,13 +35,13 @@ int SackComposition::calculateTotalWeight() {
 int SackComposition::calculateTotalProfit() {
 	totalProfit = 0;
 	for (auto item : itemList) {
-		totalProfit += item.second.getProfit();
+		totalProfit += item.getProfit();
 	}
 	return totalProfit;
 }
 
 void SackComposition::addJobConfiguration(JobConfiguration newItem) {
-	itemList[newItem.getTask()] = newItem;
+	itemList.push_back(newItem);
 	totalWeight += newItem.getResources();
 	totalProfit += newItem.getProfit();
 }

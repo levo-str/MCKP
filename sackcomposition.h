@@ -15,14 +15,14 @@ public:
 	SackComposition(std::vector<JobConfiguration> itemList);
 	int getTotalWeight() { return totalWeight; };
 	int getTotalProfit() { return totalProfit; };
-	std::map<int,JobConfiguration> getItemList() { return itemList; };
+	std::vector<JobConfiguration> getItemList() { return itemList; };
 	int calculateTotalWeight();
 	int calculateTotalProfit();
 	void addJobConfiguration(JobConfiguration newItem);
-	 
+
 
 private:
-	std::map<int, JobConfiguration> itemList;
+	std::vector<JobConfiguration> itemList;
 	int totalWeight;
 	int totalProfit;
 };
