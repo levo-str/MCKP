@@ -79,7 +79,7 @@ SackComposition ResourceManagerDP::solveMckpConcurrently() {
 	int i = numberItems;
 	int j = numberResources;
 	int previousTask = itemsSortedByTask[i - 1].getTask();
-	while (i > 1 && j > 0) {
+	while (i >= 1 && j > 0) {
 		JobConfiguration inspectedJobConfiguration = itemsSortedByTask[i - 1];
 		if (profitArray[i - 1][j] != profitArray[i][j] && inspectedJobConfiguration.getTask() <= previousTask) {
 			previousTask = inspectedJobConfiguration.getTask() - 1;
@@ -132,7 +132,7 @@ SackComposition ResourceManagerDP::solveMckp() {
 	int i = numberItems;
 	int j = numberResources;
 	int previousTask = itemsSortedByTask[i - 1].getTask();
-	while (i > 1 && j > 0) {
+	while (i >= 1 && j > 0) {
 		JobConfiguration inspectedJobConfiguration = itemsSortedByTask[i - 1];
 		if (profitArray[i - 1][j] != profitArray[i][j] && inspectedJobConfiguration.getTask() <= previousTask) {
 			previousTask = inspectedJobConfiguration.getTask() - 1;
