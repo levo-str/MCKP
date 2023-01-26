@@ -106,10 +106,8 @@ SackComposition ResourceManagerBB::solveMckp() {
 	while (!nodesToExpand.empty()) {
 		Node nodeConsidered = nodesToExpand.front();
 		nodesToExpand.pop();
-		cout << bestValue << endl;
 		//if it's a leaf node
 		if (nodeConsidered.depth >= numberItems - 1) {
-			cout << "leaf" << endl;
 			if (nodeConsidered.getCurrentValue() > bestValue) {
 				bestValue = nodeConsidered.getCurrentValue();
 				bestComposition = nodeConsidered.sackComposition;
