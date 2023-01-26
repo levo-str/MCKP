@@ -1,35 +1,31 @@
 #pragma once
 #include<vector>
-#include"NodeValue.h"
-//#include"resourceManagerBB.h"
+#include "sackcomposition.h"
+#include"resourceManagerBB.h"
+
 
 class Node
 {
 public:
-	Node* left;
-	Node* right;
-	int level;
-	bool isLeaf;
-
-	Node(NodeValue v) : id(current_id++) {
-		val = v;
-		left = nullptr;
-		right = nullptr;
-		isLeaf = false;
-	};
+	int getCurrentValue() { return currentValue; };
+	int getBound() { return bound; };
+	int getDepth() { return depth; };
+	std::unordered_map<int, int> getLastItemIndexConsideredPerSet() { return lastItemIndexConsideredPerSet; };
+	std::unordered_set<int> getSetsAlreadyPresent() { return setsAlreadyPresent; };
+	SackComposition getSackcomposition() { return sackComposition; };
+	Node(int b, int c, SackComposition sack, unordered_map<int, int> maxRatioItemIndexByTask, std::unordered_set<int> setsAlreadyPresent);
 	Node(const Node& t) {
 	}
-	Node& operator=(const Node& t)
-	{
-		return *this;
-	}
-	Node() {};
-	int getNodeId() { return id; };
+	Node& operator=(const Node& t){return *this;};
+	Node(){};
 
 private:
-	NodeValue val;
-	uint32_t id;
-	static atomic_uint32_t current_id; // added
-	//friend class ResourceManagerBB;
-
+	int bound;
+	int currentValue;
+	int depth;
+	SackComposition sackComposition;
+	std::unordered_set<int> setsAlreadyPresent;
+	std::unordered_map<int, int> lastItemIndexConsideredPerSet;
+	unordered_map<int, int> maxRatioItemIndexByTask;
+	friend class ResourceManagerBB;
 };
