@@ -47,7 +47,7 @@ SackComposition ResourceManagerDP::solveMckp() {
 		for (int j = 0; j < numberResources + 1; j++) {
 			//cout << "step number i = " << i << " number j = " << j << endl;
 
-			if (i == 0 || j == 0) profitArray[i][j] = 0;
+			if (i == 0) profitArray[i][j] = 0;
 
 			else {
 				JobConfiguration currentItem = itemsSortedByTask[i - 1];
@@ -103,7 +103,7 @@ SackComposition ResourceManagerDP::solveMckpConcurrently() {
 		concurrency::parallel_for(0, numberResources + 1, [i, this](int j) {
 			//cout << "step number i = " << i << " number j = " << j << endl;
 
-			if (i == 0 || j == 0) profitArray[i][j] = 0;
+			if (i == 0) profitArray[i][j] = 0;
 
 			else {
 				JobConfiguration currentItem = itemsSortedByTask[i - 1];
