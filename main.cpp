@@ -106,7 +106,7 @@ int main() {
 
 		unordered_map<int, JobConfiguration> mapItems;
 
-		for (int itemNumber = 0; itemNumber < 100; itemNumber++) {
+		for (int itemNumber = 0; itemNumber < 5; itemNumber++) {
 			std::generate(begin(v), end(v), [&]() { return dist2(rng); });
 			JobConfiguration newJobConfig = JobConfiguration(v[0], v[1], v[2] % numberOfSet);
 			mapItems[newJobConfig.getId()] = newJobConfig;
@@ -117,7 +117,7 @@ int main() {
 		SackComposition solution = problemSolver.solveMckp();
 		auto finish = get_time();
 		auto duration =
-		std::chrono::duration_cast<std::chrono::milliseconds>(finish - start);
+		std::chrono::duration_cast<std::chrono::nanoseconds>(finish - start);
 		totalTimeForSerialResolution += duration.count();
 
 
@@ -129,7 +129,7 @@ int main() {
 		auto parallelFinish = get_time();
 
 		auto parallelDuration =
-			std::chrono::duration_cast<std::chrono::milliseconds>(parallelFinish - parallelStart);
+			std::chrono::duration_cast<std::chrono::nanoseconds>(parallelFinish - parallelStart);
 		totalTimeForParallelResolution += parallelDuration.count();
 
 		auto bBstart = get_time();
@@ -139,7 +139,7 @@ int main() {
 		auto bBFinish = get_time();
 
 		auto bBDuration =
-			std::chrono::duration_cast<std::chrono::milliseconds>(bBFinish - bBstart);
+			std::chrono::duration_cast<std::chrono::nanoseconds>(bBFinish - bBstart);
 		totalTimeForBBResolution += bBDuration.count();
 
 		if (solutionBB.calculateTotalProfit() != solution.calculateTotalProfit()) {
@@ -166,9 +166,9 @@ int main() {
 			cout << endl;
 		}
 	}
-	cout << "for serial execution : " << totalTimeForSerialResolution << "ms" << endl;
-	cout << "for parallel execution : " << totalTimeForParallelResolution << "ms" << endl;
-	cout << "for branch and bound execution : " << totalTimeForBBResolution << "ms" << endl;
+	cout << "for serial execution : " << totalTimeForSerialResolution << "ns" << endl;
+	cout << "for parallel execution : " << totalTimeForParallelResolution << "ns" << endl;
+	cout << "for branch and bound execution : " << totalTimeForBBResolution << "ns" << endl;
 	
 
 	/*
