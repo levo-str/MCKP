@@ -12,11 +12,10 @@
 #include "algorithm"
 #include "ResourceManager.h"
 
-
 /**
 * @brief The class of the MCKP solver dynamic programmation.
 */
-class ResourceManagerDP : private ResourceManager
+class ResourceManagerDP : public ResourceManager
 {
 public:
 	ResourceManagerDP();
