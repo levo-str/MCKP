@@ -63,6 +63,12 @@
     <ClInclude Include="ResourceManagerBB.h">
       <Filter>Fichiers d%27en-tête\branchAndBounds</Filter>
     </ClInclude>
+    <ClInclude Include="ResourceManagerType.h">
+      <Filter>Fichiers d%27en-tête\problemFormulation</Filter>
+    </ClInclude>
+    <ClInclude Include="SolutionGenerator.h">
+      <Filter>Fichiers d%27en-tête\problemFormulation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -91,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="ResourceManagerBB.cpp">
       <Filter>Fichiers sources\branchAndBounds</Filter>
+    </ClCompile>
+    <ClCompile Include="SolutionGenerator.cpp">
+      <Filter>Fichiers sources\problemFormulation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ResourceManagerType.h" />
     <ClInclude Include="jobconfiguration.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="ProblemGenerator.h" />
@@ -136,6 +137,7 @@
     <ClInclude Include="resourceManagerDP.h" />
     <ClInclude Include="sackcomposition.h" />
     <ClInclude Include="Job.h" />
+    <ClInclude Include="SolutionGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jobconfiguration.cpp" />
@@ -147,6 +149,7 @@
     <ClCompile Include="resourceManagerDP.cpp" />
     <ClCompile Include="sackcomposition.cpp" />
     <ClCompile Include="Job.cpp" />
+    <ClCompile Include="SolutionGenerator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
