@@ -20,7 +20,7 @@ class Node; //forward declaration for reciprocal dependency
 /* 
 * Solving class using the branch and bound algorithm
 */
-class ResourceManagerBB : private ResourceManager
+class ResourceManagerBB : public ResourceManager
 {
 public:
 	ResourceManagerBB();
@@ -34,6 +34,6 @@ private:
 	int numberItems;
 	std::vector<JobConfiguration> itemsSortedByRatio;
 	int nextIndex(int currentIndex);
-	int calculateProfit(Node node);
-	int calculateBound(std::vector<JobConfiguration> currentComposition, std::unordered_map<int,int> maxRatioItemIndexByTask, std::unordered_set<int> setsAlreadyPresent);
+	int numberOfSets = 0;
+	float calculateBound(int depth, SackComposition currentSackComposition, unordered_set<int> setsAlreadyPresent);
 };

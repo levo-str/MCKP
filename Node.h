@@ -3,25 +3,24 @@
 #include "sackcomposition.h"
 #include "resourceManagerBB.h"
 
-
+/*
+* Node class for the branch and bound algorithm
+* [depth] depth of the node in the branch and bound tree
+* [bound] bound of the node
+* [currentValue] actual profit of the sack composition stored in the node
+* [setsAlreadyPresent] unordered_set to remember which set of the problem are alrezady present in the node
+*/
 class Node
 {
 public:
-	int getCurrentValue() { return currentValue; };
-	int getBound() { return bound; };
-	int getDepth() { return depth; };
-	std::unordered_map<int, int> getMaxRatioItemIndexByTask() { return maxRatioItemIndexByTask; };
-	std::unordered_set<int> getSetsAlreadyPresent() { return setsAlreadyPresent; };
-	SackComposition getSackcomposition() { return sackComposition; };
-	Node(int b, int c, SackComposition sack, unordered_map<int, int> maxRatioItemIndexByTask, std::unordered_set<int> setsAlreadyPresent);
+	Node(float b, SackComposition sack, std::unordered_set<int> setsAlreadyPresent);
 	Node(){};
 
 private:
-	int bound;
+	float bound;
 	int currentValue;
 	int depth;
 	SackComposition sackComposition;
 	std::unordered_set<int> setsAlreadyPresent;
-	std::unordered_map<int, int> maxRatioItemIndexByTask;
 	friend class ResourceManagerBB;
 };
