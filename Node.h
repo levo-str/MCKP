@@ -1,7 +1,7 @@
 #pragma once
 #include<vector>
 #include "sackcomposition.h"
-#include "resourceManagerBB.h"
+#include "ResourceManagerBB.h"
 
 /*
 * Node class for the branch and bound algorithm

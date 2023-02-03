@@ -129,25 +129,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ResourceManagerType.h" />
-    <ClInclude Include="jobconfiguration.h" />
+    <ClInclude Include="Jobconfiguration.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="ProblemGenerator.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="ResourceManagerBB.h" />
-    <ClInclude Include="resourceManagerDP.h" />
-    <ClInclude Include="sackcomposition.h" />
+    <ClInclude Include="ResourceManagerDP.h" />
+    <ClInclude Include="Sackcomposition.h" />
     <ClInclude Include="Job.h" />
     <ClInclude Include="SolutionGenerator.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="jobconfiguration.cpp" />
+    <ClCompile Include="Jobconfiguration.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="ProblemGenerator.cpp" />
-    <ClCompile Include="resourceManager.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="ResourceManagerBB.cpp" />
-    <ClCompile Include="resourceManagerDP.cpp" />
-    <ClCompile Include="sackcomposition.cpp" />
+    <ClCompile Include="ResourceManagerDP.cpp" />
+    <ClCompile Include="Sackcomposition.cpp" />
     <ClCompile Include="Job.cpp" />
     <ClCompile Include="SolutionGenerator.cpp" />
   </ItemGroup>

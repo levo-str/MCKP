@@ -1,4 +1,4 @@
-#include "resourceManagerDP.h"
+#include "ResourceManagerDP.h"
 
 
 /**

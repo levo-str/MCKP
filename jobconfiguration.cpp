@@ -1,4 +1,4 @@
-#include "jobconfiguration.h"
+#include "Jobconfiguration.h"
 #include <atomic> //std::atomic_uint32_t
 #include <iostream>
 #include <fstream>

@@ -42,7 +42,7 @@
     <ClInclude Include="Job.h">
       <Filter>Fichiers d%27en-tête\problemFormulation</Filter>
     </ClInclude>
-    <ClInclude Include="jobconfiguration.h">
+    <ClInclude Include="Jobconfiguration.h">
       <Filter>Fichiers d%27en-tête\commons</Filter>
     </ClInclude>
     <ClInclude Include="Node.h">
@@ -51,10 +51,10 @@
     <ClInclude Include="ProblemGenerator.h">
       <Filter>Fichiers d%27en-tête\problemFormulation</Filter>
     </ClInclude>
-    <ClInclude Include="resourceManagerDP.h">
+    <ClInclude Include="ResourceManagerDP.h">
       <Filter>Fichiers d%27en-tête\dynamicProgramming</Filter>
     </ClInclude>
-    <ClInclude Include="sackcomposition.h">
+    <ClInclude Include="Sackcomposition.h">
       <Filter>Fichiers d%27en-tête\commons</Filter>
     </ClInclude>
     <ClInclude Include="ResourceManager.h">
@@ -77,22 +77,22 @@
     <ClCompile Include="Job.cpp">
       <Filter>Fichiers sources\problemFormulation</Filter>
     </ClCompile>
-    <ClCompile Include="jobconfiguration.cpp">
+    <ClCompile Include="Jobconfiguration.cpp">
       <Filter>Fichiers sources\commons</Filter>
     </ClCompile>
     <ClCompile Include="Node.cpp">
       <Filter>Fichiers sources\branchAndBounds</Filter>
     </ClCompile>
-    <ClCompile Include="resourceManagerDP.cpp">
+    <ClCompile Include="ResourceManagerDP.cpp">
       <Filter>Fichiers sources\dynamicProgramming</Filter>
     </ClCompile>
     <ClCompile Include="ProblemGenerator.cpp">
       <Filter>Fichiers sources\problemFormulation</Filter>
     </ClCompile>
-    <ClCompile Include="sackcomposition.cpp">
+    <ClCompile Include="Sackcomposition.cpp">
       <Filter>Fichiers sources\commons</Filter>
     </ClCompile>
-    <ClCompile Include="resourceManager.cpp">
+    <ClCompile Include="ResourceManager.cpp">
       <Filter>Fichiers sources\problemFormulation</Filter>
     </ClCompile>
     <ClCompile Include="ResourceManagerBB.cpp">

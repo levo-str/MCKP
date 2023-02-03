@@ -1,14 +1,11 @@
 #pragma once
-#include "jobconfiguration.h"
-#include <vector>
 #include <vector>
 #include <fstream>
 #include <cmath>
 #include <unordered_map>
 #include <ppl.h>
-#include "jobconfiguration.h"
+#include "Jobconfiguration.h"
 #include "SackComposition.h"
-#include "map"
 #include "algorithm"
 #include "ResourceManager.h"
 

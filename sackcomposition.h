@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "map"
-#include "jobconfiguration.h"
+#include "Jobconfiguration.h"
 
 using namespace std;
 

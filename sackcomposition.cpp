@@ -1,4 +1,4 @@
-#include "sackComposition.h"
+#include "SackComposition.h"
 
 /**
 * Default Builder for SackComposition (i.e knapsack configuration)
