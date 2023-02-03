@@ -10,9 +10,8 @@
 #include "algorithm"
 
 #include "Job.h"
-#include "jobconfiguration.h"
-#include "jobconfiguration.h"
-#include "sackcomposition.h"
+#include "Jobconfiguration.h"
+#include "Sackcomposition.h"
 #include "ResourceManager.h"
 
 class Node; //forward declaration for reciprocal dependency
