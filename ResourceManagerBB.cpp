@@ -4,7 +4,17 @@
 #include <queue>
 
 float calculateRatio(JobConfiguration jobConfiguration) {
-	return (float) jobConfiguration.getProfit() / (float) jobConfiguration.getResources();
+	if (jobConfiguration.getResources() == 0) {
+		if (jobConfiguration.getProfit() > 0) {
+			return std::numeric_limits<float>::max();
+		}
+		else {
+			return -std::numeric_limits<float>::max();
+		}
+	}
+	else {
+		return (float)jobConfiguration.getProfit() / (float)jobConfiguration.getResources();
+	}
 }
 
 bool compareByRatio(JobConfiguration a, JobConfiguration b) {
@@ -36,17 +46,10 @@ ResourceManagerBB::ResourceManagerBB(int numberOfResources, std::unordered_map<i
 	//std::cout << "Initialisation complete" << endl;
 }
 
-int ResourceManagerBB::nextIndex(int currentIndex) {
-	int setToUpdate = itemsSortedByRatio[currentIndex].getTask();
-	for (int i = currentIndex + 1; i < numberItems; i++) {
-		if (itemsSortedByRatio[i].getTask() == setToUpdate) {
-			return i;
-		}
-	}
-	return numberItems;
-}
-
-//change to normal knapsack bound
+/**
+* Calculates the bound adding by order of ratio the items from sets that are still not in the node and items yet to be studied. When the remaining knapsack capacity is inferior to the item weight add, the fraction 
+* what can still fit. It's the normal bound function for the 0/1 Knapsack but adapted to the set constraint.
+*/
 float ResourceManagerBB::calculateBound(int depth, SackComposition currentSackComposition, unordered_set<int> setsAlreadyPresent) {
 	
 	float bound = (float) currentSackComposition.calculateTotalProfit();
@@ -54,8 +57,7 @@ float ResourceManagerBB::calculateBound(int depth, SackComposition currentSackCo
 	if (currentSackComposition.getItemList().size() == numberOfSets || setsAlreadyPresent.size() == numberOfSets ) 
 		return bound;
 	int remainingWeightInKnapSack = this-> numberResources - currentSackComposition.calculateTotalWeight();
-	bool setsRemainToexplore = false;
-	do {
+	
 		for (int i = depth + 1; i < itemsSortedByRatio.size(); i++) {
 			JobConfiguration item = itemsSortedByRatio[i];
 			if (setsAlreadyPresent.count(item.getTask()) == 0) {
@@ -68,11 +70,8 @@ float ResourceManagerBB::calculateBound(int depth, SackComposition currentSackCo
 					remainingWeightInKnapSack = 0;
 					break;
 				}
-				setsRemainToexplore = true;
 			}
 		}
-	} while (remainingWeightInKnapSack != 0 && setsRemainToexplore);
-	
 	return bound;
 }
 
@@ -98,7 +97,7 @@ SackComposition ResourceManagerBB::solveMckp() {
 		}
 
 		else {
-			if (nodeConsidered.bound>= bestValue) {
+			if (nodeConsidered.bound > bestValue) {
 				//else it's not worth studying
 				if (nodeConsidered.currentValue > bestValue) {
 					bestValue = nodeConsidered.currentValue;
@@ -119,7 +118,7 @@ SackComposition ResourceManagerBB::solveMckp() {
 					Node leftChildNode = Node(leftChildBound, SackComposition(leftChildItemList), newSetsAlreadyPresent);
 					leftChildNode.depth = nodeConsidered.depth + 1;
 					
-					if (leftChildNode.bound >= (float)bestValue) {
+					if (leftChildNode.bound > (float)bestValue) {
 						nodesToExpand.push(leftChildNode);
 					}
 				}
@@ -127,7 +126,7 @@ SackComposition ResourceManagerBB::solveMckp() {
 				Node rightChildNode = Node(calculateBound(nodeConsidered.depth + 1, nodeConsidered.sackComposition, nodeConsidered.setsAlreadyPresent), nodeConsidered.sackComposition, nodeConsidered.setsAlreadyPresent);
 				rightChildNode.depth = nodeConsidered.depth + 1;
 				
-				if (rightChildNode.bound >= (float) bestValue) {
+				if (rightChildNode.bound > (float) bestValue) {
 					nodesToExpand.push(rightChildNode);
 				}
 
